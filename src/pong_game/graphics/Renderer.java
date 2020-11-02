@@ -13,13 +13,16 @@ import com.jogamp.opengl.GLProfile;
  * @author seishuku
  */
 public class Renderer {
-    
+
     private static GLWindow window = null;
     public static int screenWidth = 640;
     public static int screenHeight = 360;
-    
+
     public static float unitsWide = 10;
     private static GLProfile profile = GLProfile.get(GLProfile.GL2);
+
+    public static float cameraX = 0;
+    public static float cameraY = 0;
 
     //Cria a janela de rendeziracao do JOGL
     public static void init() {
@@ -35,7 +38,7 @@ public class Renderer {
         window.addGLEventListener(new EventListener());
         window.addMouseListener(new MouseInput());
         window.addKeyListener(new KeyInput());
-        
+
         window.requestFocus();
 //        FPSAnimator animator = new FPSAnimator(window, 60);
 //        animator.start(); //inicia o loop de animacao
@@ -52,26 +55,26 @@ public class Renderer {
         //window.setFullscreen(true);        
         window.setVisible(true);
     }
-    
+
     public static void render() {
         if (window == null) {
             return;
         }
         window.display();
     }
-    
+
     public static GLProfile getProfile() {
         return profile;
     }
-    
+
     public static int getWindowWidth() {
         return window.getWidth();
-        
+
     }
-    
+
     public static int getWindowHeight() {
         return window.getHeight();
-        
+
     }
-    
+
 }

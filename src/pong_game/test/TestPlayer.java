@@ -2,6 +2,7 @@ package pong_game.test;
 
 import com.jogamp.newt.event.KeyEvent;
 import pong_game.Input.KeyInput;
+import pong_game.Input.MouseInput;
 import pong_game.engine.GameLoop;
 import pong_game.game.GameObject;
 import pong_game.graphics.*;
@@ -41,6 +42,10 @@ public class TestPlayer extends GameObject {
 
         x += xInput * runSpeed * GameLoop.updateDelta();
         y += yInput * runSpeed * GameLoop.updateDelta();
+
+        Renderer.cameraX = 1.0f * GameLoop.updateDelta();
+        rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX(), MouseInput.getWorldY()));
+
     }
 
 }

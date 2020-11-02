@@ -28,7 +28,9 @@ public class EventListener implements GLEventListener {
     public void display(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+        gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
         World.render();
+        gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
 
 //        Graphics.setColor(0, 1, 0, 1);
 //        Graphics.fillRect(1, 0, 1, 1);
