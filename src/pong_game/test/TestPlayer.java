@@ -19,9 +19,9 @@ public class TestPlayer extends GameObject {
     public TestPlayer() {
         animations = new Animation[1];
         animations[0] = new Animation();
-        animations[0].frames = new ImageResource[2];
-        animations[0].frames[0] = new ImageResource("../res/ball.jpg");
-        animations[0].frames[1] = new ImageResource("../res/ball_1.jpg");
+        animations[0].frames = new ImageResource[1];
+//        animations[0].frames[0] = new ImageResource("../res/paper_ball.png");
+//        animations[0].frames[1] = new ImageResource("../res/ball_1.jpg");
 
     }
 
@@ -32,19 +32,24 @@ public class TestPlayer extends GameObject {
 
         if (KeyInput.getKey(KeyEvent.VK_LEFT)) {
             xInput--;
-        } else if (KeyInput.getKey(KeyEvent.VK_RIGHT)) {
+        }
+        if (KeyInput.getKey(KeyEvent.VK_RIGHT)) {
             xInput++;
-        } else if (KeyInput.getKey(KeyEvent.VK_UP)) {
+        }
+        if (KeyInput.getKey(KeyEvent.VK_UP)) {
             yInput++;
-        } else if (KeyInput.getKey(KeyEvent.VK_DOWN)) {
+        }
+        if (KeyInput.getKey(KeyEvent.VK_DOWN)) {
             yInput--;
         }
 
         x += xInput * runSpeed * GameLoop.updateDelta();
         y += yInput * runSpeed * GameLoop.updateDelta();
 
-        Renderer.cameraX = 1.0f * GameLoop.updateDelta();
-        rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX(), MouseInput.getWorldY()));
+//        Renderer.cameraX = x;
+//        Renderer.cameraY = y;
+
+        rotation = (float) Math.toDegrees(Math.atan2(MouseInput.getWorldX() - x, MouseInput.getWorldY() - y));
 
     }
 

@@ -40,7 +40,7 @@ public class GameLoop {
                     long timeTaken = System.nanoTime() - currentTime;
                     if (targetTime > timeTaken) {
                         try {
-                            Thread.sleep((targetTime - timeTaken) / 1000000);
+                            Thread.sleep((targetTime - timeTaken) / 1000000000);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(GameLoop.class.getName()).log(Level.SEVERE, null, ex);
                         }

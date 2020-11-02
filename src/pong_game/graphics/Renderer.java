@@ -7,7 +7,8 @@ import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
-
+import com.jogamp.opengl.util.awt.TextRenderer;
+import java.awt.Font;
 /**
  *
  * @author seishuku
@@ -23,7 +24,6 @@ public class Renderer {
 
     public static float cameraX = 0;
     public static float cameraY = 0;
-
     //Cria a janela de rendeziracao do JOGL
     public static void init() {
         GLProfile.initSingleton();
@@ -31,9 +31,8 @@ public class Renderer {
         GLCapabilities caps = new GLCapabilities(profile);
         window = GLWindow.create(caps);
         window.setSize(screenWidth, screenHeight);
-        //window.setResizable(false);
+        window.setResizable(false);
         //window.setFullscreen(true);
-
         //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
         window.addMouseListener(new MouseInput());

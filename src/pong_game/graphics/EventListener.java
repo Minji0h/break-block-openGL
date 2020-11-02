@@ -4,6 +4,7 @@ import pong_game.game.World;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import pong_game.game.Player;
 import pong_game.resource.ImageResource;
 
 /**
@@ -19,8 +20,13 @@ public class EventListener implements GLEventListener {
         gl = drawable.getGL().getGL2();
         gl.glClearColor(0, 0, 0, 1);
         gl.glEnable(GL2.GL_TEXTURE_2D);
+        gl.glEnable(GL2.GL_BLEND);
+        gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
+
 //        image = new ImageResource("../res/ball.jpg");
     }
+
+
 
     public void dispose(GLAutoDrawable drawable) {
     }
@@ -32,18 +38,7 @@ public class EventListener implements GLEventListener {
         World.render();
         gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
 
-//        Graphics.setColor(0, 1, 0, 1);
-//        Graphics.fillRect(1, 0, 1, 1);
-//        for (int i = 0; i < 1000; i++) {
-//            Random rand = new Random();
-//            float x = rand.nextInt(5);
-//            float y = rand.nextInt(5);
-//            float width = rand.nextFloat();
-//            float height = rand.nextFloat();
-//
-//            Graphics.fillRect(x, y, width, height);
-//
-//        }
+
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
