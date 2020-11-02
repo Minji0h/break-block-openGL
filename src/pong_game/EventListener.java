@@ -8,6 +8,7 @@ package pong_game;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import java.util.Random;
 
 /**
  *
@@ -15,8 +16,10 @@ import com.jogamp.opengl.GLEventListener;
  */
 public class EventListener implements GLEventListener {
 
+    public static GL2 gl = null;
+
     public void init(GLAutoDrawable drawable) {
-        GL2 gl = drawable.getGL().getGL2();
+        gl = drawable.getGL().getGL2();
         gl.glClearColor(0, 0, 0, 1);
     }
 
@@ -24,19 +27,28 @@ public class EventListener implements GLEventListener {
     }
 
     public void display(GLAutoDrawable drawable) {
-        GL2 gl = drawable.getGL().getGL2();
+        gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
-        gl.glColor3f(0, 0, 1);
-        gl.glBegin(GL2.GL_QUADS);
-        gl.glVertex2f(-1, -1f);
-        gl.glVertex2f(1f, -1f);
-        gl.glVertex2f(1f, 1f);
-        gl.glVertex2f(-1f, 1f);
-        gl.glEnd();
+        Graphics.setColor(0, 1, 0, 1);
+        Graphics.fillRect(0, 0, 1, 1);
+
+        Graphics.setColor(0, 0, 1, 1);
+        Graphics.fillRect(2, 0, 1, 1);
+//        for (int i = 0; i < 1000; i++) {
+//            Random rand = new Random();
+//            float x = rand.nextInt(5);
+//            float y = rand.nextInt(5);
+//            float width = rand.nextFloat();
+//            float height = rand.nextFloat();
+//
+//            Graphics.fillRect(x, y, width, height);
+//
+//        }
+
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
-        GL2 gl = drawable.getGL().getGL2();
+        gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
 
