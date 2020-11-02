@@ -19,8 +19,10 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class Renderer {
 
     private static GLWindow window = null;
-    public static int screenWidth = 600;  //1280  - 640
-    public static int screenHeight = 600; //960  - 480
+    public static int screenWidth = 640;
+    public static int screenHeight = 360;
+
+    public static float unitsWide = 10;
 
     //Cria a janela de rendeziracao do JOGL
     public static void init() {
@@ -30,6 +32,7 @@ public class Renderer {
         window = GLWindow.create(caps);
         window.setSize(screenWidth, screenHeight);
         //window.setResizable(false);
+        //window.setFullscreen(true);
 
         //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
@@ -49,6 +52,15 @@ public class Renderer {
 
         //window.setFullscreen(true);        
         window.setVisible(true);
+    }
+
+    public static int getWindowWidth() {
+        return window.getWidth();
+
+    }
+
+    public static int getWindowHeight() {
+        return window.getHeight();
 
     }
 
