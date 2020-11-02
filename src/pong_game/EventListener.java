@@ -17,10 +17,13 @@ import java.util.Random;
 public class EventListener implements GLEventListener {
 
     public static GL2 gl = null;
+    public static ImageResource image = null;
 
     public void init(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
         gl.glClearColor(0, 0, 0, 1);
+        gl.glEnable(GL2.GL_TEXTURE_2D);
+        // image = new ImageResource("ball.jpg");
     }
 
     public void dispose(GLAutoDrawable drawable) {
@@ -29,9 +32,10 @@ public class EventListener implements GLEventListener {
     public void display(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+
+        // Graphics.drawImage(image, 0, 0, 1, 1);
         Graphics.setColor(0, 1, 0, 1);
         Graphics.fillRect(1, 0, 1, 1);
-
 //        for (int i = 0; i < 1000; i++) {
 //            Random rand = new Random();
 //            float x = rand.nextInt(5);
@@ -42,7 +46,6 @@ public class EventListener implements GLEventListener {
 //            Graphics.fillRect(x, y, width, height);
 //
 //        }
-
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {

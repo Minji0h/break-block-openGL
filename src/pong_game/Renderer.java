@@ -23,11 +23,12 @@ public class Renderer {
     public static int screenHeight = 360;
 
     public static float unitsWide = 10;
+    private static GLProfile profile = GLProfile.get(GLProfile.GL2);
 
     //Cria a janela de rendeziracao do JOGL
     public static void init() {
         GLProfile.initSingleton();
-        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        profile = GLProfile.get(GLProfile.GL2);
         GLCapabilities caps = new GLCapabilities(profile);
         window = GLWindow.create(caps);
         window.setSize(screenWidth, screenHeight);
@@ -52,6 +53,10 @@ public class Renderer {
 
         //window.setFullscreen(true);        
         window.setVisible(true);
+    }
+
+    public static GLProfile getProfile() {
+        return profile;
     }
 
     public static int getWindowWidth() {
