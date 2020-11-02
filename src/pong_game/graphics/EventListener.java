@@ -1,5 +1,6 @@
 package pong_game.graphics;
 
+import OPGL_Game.World;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
@@ -27,7 +28,7 @@ public class EventListener implements GLEventListener {
     public void display(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
-
+        World.render();
 
 //        Graphics.setColor(0, 1, 0, 1);
 //        Graphics.fillRect(1, 0, 1, 1);
