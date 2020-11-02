@@ -30,10 +30,8 @@ public class EventListener implements GLEventListener {
         gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
         Graphics.setColor(0, 1, 0, 1);
-        Graphics.fillRect(0, 0, 1, 1);
+        Graphics.fillRect(1, 0, 1, 1);
 
-        Graphics.setColor(0, 0, 1, 1);
-        Graphics.fillRect(2, 0, 1, 1);
 //        for (int i = 0; i < 1000; i++) {
 //            Random rand = new Random();
 //            float x = rand.nextInt(5);
