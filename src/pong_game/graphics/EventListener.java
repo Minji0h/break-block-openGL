@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pong_game.graphics;
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-import java.util.Random;
 import pong_game.resource.ImageResource;
-import pong_game.Renderer;
 
 /**
  *
@@ -25,7 +18,7 @@ public class EventListener implements GLEventListener {
         gl = drawable.getGL().getGL2();
         gl.glClearColor(0, 0, 0, 1);
         gl.glEnable(GL2.GL_TEXTURE_2D);
-        // image = new ImageResource("ball.jpg");
+        image = new ImageResource("../res/ball.jpg");
     }
 
     public void dispose(GLAutoDrawable drawable) {
@@ -35,9 +28,9 @@ public class EventListener implements GLEventListener {
         gl = drawable.getGL().getGL2();
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 
-        // Graphics.drawImage(image, 0, 0, 1, 1);
-        Graphics.setColor(0, 1, 0, 1);
-        Graphics.fillRect(1, 0, 1, 1);
+
+//        Graphics.setColor(0, 1, 0, 1);
+//        Graphics.fillRect(1, 0, 1, 1);
 //        for (int i = 0; i < 1000; i++) {
 //            Random rand = new Random();
 //            float x = rand.nextInt(5);

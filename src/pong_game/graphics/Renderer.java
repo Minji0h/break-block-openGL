@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package pong_game;
+package pong_game.graphics;
 
 import pong_game.Input.MouseInput;
 import pong_game.graphics.EventListener;
@@ -40,21 +35,29 @@ public class Renderer {
         //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
         window.addMouseListener(new MouseInput());
+                
         window.requestFocus();
-        FPSAnimator animator = new FPSAnimator(window, 60);
-        animator.start(); //inicia o loop de animacao
+//        FPSAnimator animator = new FPSAnimator(window, 60);
+//        animator.start(); //inicia o loop de animacao
 
         //encerrar a aplicacao adequadamente
         window.addWindowListener(new WindowAdapter() {
             @Override
             public void windowDestroyNotify(WindowEvent e) {
-                animator.stop();
+//                animator.stop();
                 System.exit(0);
             }
         });
 
         //window.setFullscreen(true);        
         window.setVisible(true);
+    }
+
+    public static void render() {
+        if (window == null) {
+            return;
+        }
+        window.display();
     }
 
     public static GLProfile getProfile() {
@@ -70,6 +73,5 @@ public class Renderer {
         return window.getHeight();
 
     }
-
 
 }
