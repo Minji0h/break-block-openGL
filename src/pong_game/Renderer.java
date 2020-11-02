@@ -36,8 +36,8 @@ public class Renderer {
 
         //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
-
-        //window.requestFocus();
+        window.addMouseListener(new MouseInput());
+        window.requestFocus();
         FPSAnimator animator = new FPSAnimator(window, 60);
         animator.start(); //inicia o loop de animacao
 
