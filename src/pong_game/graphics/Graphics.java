@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pong_game;
+package pong_game.graphics;
 
+import pong_game.graphics.EventListener;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.util.texture.Texture;
+import pong_game.resource.ImageResource;
 
 /**
  *

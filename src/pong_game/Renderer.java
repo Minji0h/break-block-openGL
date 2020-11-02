@@ -5,6 +5,8 @@
  */
 package pong_game;
 
+import pong_game.Input.MouseInput;
+import pong_game.graphics.EventListener;
 import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
@@ -69,7 +71,5 @@ public class Renderer {
 
     }
 
-    public static void main(String[] args) {
-        init();
-    }
+
 }
