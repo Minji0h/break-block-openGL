@@ -1,24 +1,23 @@
 package pong_game.graphics;
 
-import pong_game.Input.MouseInput;
+import pong_game.Input.*;
 import pong_game.graphics.EventListener;
 import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.GLCapabilities;
 import com.jogamp.opengl.GLProfile;
-import com.jogamp.opengl.util.FPSAnimator;
 
 /**
  *
  * @author seishuku
  */
 public class Renderer {
-
+    
     private static GLWindow window = null;
     public static int screenWidth = 640;
     public static int screenHeight = 360;
-
+    
     public static float unitsWide = 10;
     private static GLProfile profile = GLProfile.get(GLProfile.GL2);
 
@@ -35,7 +34,8 @@ public class Renderer {
         //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
         window.addMouseListener(new MouseInput());
-                
+        window.addKeyListener(new KeyInput());
+        
         window.requestFocus();
 //        FPSAnimator animator = new FPSAnimator(window, 60);
 //        animator.start(); //inicia o loop de animacao
@@ -52,26 +52,26 @@ public class Renderer {
         //window.setFullscreen(true);        
         window.setVisible(true);
     }
-
+    
     public static void render() {
         if (window == null) {
             return;
         }
         window.display();
     }
-
+    
     public static GLProfile getProfile() {
         return profile;
     }
-
+    
     public static int getWindowWidth() {
         return window.getWidth();
-
+        
     }
-
+    
     public static int getWindowHeight() {
         return window.getHeight();
-
+        
     }
-
+    
 }

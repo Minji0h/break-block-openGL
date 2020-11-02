@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pong_game;
 
+import pong_game.game.World;
+import pong_game.test.TestPlayer;
 import pong_game.engine.GameLoop;
 import pong_game.graphics.Renderer;
-
 
 /**
  *
@@ -18,5 +14,8 @@ public class Main {
     public static void main(String[] args) {
         Renderer.init();
         GameLoop.start();
+
+        //TEST
+        World.addObject(new TestPlayer());
     }
 }

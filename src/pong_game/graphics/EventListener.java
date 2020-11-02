@@ -1,6 +1,6 @@
 package pong_game.graphics;
 
-import OPGL_Game.World;
+import pong_game.game.World;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
@@ -19,7 +19,7 @@ public class EventListener implements GLEventListener {
         gl = drawable.getGL().getGL2();
         gl.glClearColor(0, 0, 0, 1);
         gl.glEnable(GL2.GL_TEXTURE_2D);
-        image = new ImageResource("../res/ball.jpg");
+//        image = new ImageResource("../res/ball.jpg");
     }
 
     public void dispose(GLAutoDrawable drawable) {

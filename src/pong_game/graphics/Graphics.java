@@ -79,7 +79,7 @@ public class Graphics {
         alpha = Math.max(0, Math.min(1, a));
     }
 
-    private static void setRotation(float r) {
+    public static void setRotation(float r) {
         rotation = r;
     }
 }

@@ -1,6 +1,6 @@
 package pong_game.engine;
 
-import OPGL_Game.World;
+import pong_game.game.World;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pong_game.graphics.Renderer;
@@ -22,10 +22,6 @@ public class GameLoop {
                 running = true;
                 lastUpdateTime = System.nanoTime();
 
-                int fps = 0;
-
-                long lastFpsCheck = System.nanoTime();
-
                 while (running) {
                     long currentTime = System.nanoTime();
 
@@ -40,13 +36,7 @@ public class GameLoop {
                         }
                     }
                     Renderer.render();
-                    fps++;
-                    if (System.nanoTime() >= lastFpsCheck + 100000000) {
-                        System.out.println(fps);
-                        fps = 0;
-                        lastFpsCheck = System.nanoTime();
 
-                    }
                     long timeTaken = System.nanoTime() - currentTime;
                     if (targetTime > timeTaken) {
                         try {
@@ -55,11 +45,15 @@ public class GameLoop {
                             Logger.getLogger(GameLoop.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                   
+
                 }
             }
         };
         thread.setName("Game Loop");
         thread.start();
+    }
+
+    public static float updateDelta() {
+        return 1.0f / 1000000000 * targetTime;
     }
 }
