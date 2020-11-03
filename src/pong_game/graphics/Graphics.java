@@ -20,7 +20,6 @@ public class Graphics {
     // rotação
     private static float rotation = 0;
 
-
     public static void fillRect(float x, float y, float width, float height) {
         GL2 gl = EventListener.gl;
 
@@ -84,5 +83,4 @@ public class Graphics {
         rotation = r;
     }
 
-    
 }

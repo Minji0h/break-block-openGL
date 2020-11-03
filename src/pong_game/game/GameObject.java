@@ -26,7 +26,9 @@ public class GameObject {
     public void render() {
         animations[currentAnimation].play();
         Graphics.setRotation(rotation);
-        Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
+        if (animations[currentAnimation].getImage() != null) {
+            Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
+        }
         Graphics.setRotation(0);
     }
 }

@@ -23,21 +23,26 @@ public class Animation {
 
         if (currentTime > lastFrameTime + 1000000000 / fps) {
             currentFrame++;
+            if (frames != null) {
+                if (currentFrame >= frames.length) {
 
-            if (currentFrame >= frames.length) {
+                    if (loop) {
+                        currentFrame = 0;
+                    } else {
+                        currentFrame--;
+                    }
+                    lastFrameTime = currentTime;
 
-                if (loop) {
-                    currentFrame = 0;
-                } else {
-                    currentFrame--;
                 }
-                lastFrameTime = currentTime;
-
             }
         }
     }
 
     public ImageResource getImage() {
-        return frames[currentFrame];
+        if (frames != null) {
+            return frames[currentFrame];
+        } else {
+            return null;
+        }
     }
 }

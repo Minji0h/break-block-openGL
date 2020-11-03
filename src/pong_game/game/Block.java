@@ -25,7 +25,10 @@ public class Block extends GameObject {
         this.powerUp = (int) (Math.random() * ((3 - 1) + 1)) + 1;
         this.x = xPos;
         this.y = yPos;
-        Graphics.setColor(0.5f, 0, 0, 1);
+        float r = (float) (Math.random() * ((1 - 0) + 1)) + 0;
+        float g = (float) (Math.random() * ((1 - 0) + 1)) + 0;
+        float b = (float) (Math.random() * ((1 - 0) + 1)) + 0;
+        Graphics.setColor(r, g, b, 1);
         Graphics.fillRect(this.x, this.y, 0.9f, 0.5f);
 
     }

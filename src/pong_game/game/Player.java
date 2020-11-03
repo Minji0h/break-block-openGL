@@ -48,6 +48,9 @@ public class Player {
     }
 
     public void drawLifePoints() {
+        if (EventListener.gl == null) {
+            return;
+        }
         GL2 gl = EventListener.gl;
 
         gl.glColor4f(0.5f, 0, 0, 1);

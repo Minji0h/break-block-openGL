@@ -4,6 +4,8 @@ import pong_game.game.World;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import java.util.ArrayList;
+import pong_game.game.Block;
 import pong_game.game.Player;
 import pong_game.resource.ImageResource;
 
@@ -15,6 +17,7 @@ public class EventListener implements GLEventListener {
 
     public static GL2 gl = null;
     public static ImageResource image = null;
+    Player player = new Player();
 
     public void init(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
@@ -26,8 +29,6 @@ public class EventListener implements GLEventListener {
 //        image = new ImageResource("../res/ball.jpg");
     }
 
-
-
     public void dispose(GLAutoDrawable drawable) {
     }
 
@@ -37,7 +38,7 @@ public class EventListener implements GLEventListener {
         gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
         World.render();
         gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
-
+        player.drawLifePoints();
 
     }
 

@@ -5,10 +5,12 @@ import pong_game.graphics.EventListener;
 import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
-import com.jogamp.opengl.GLCapabilities;
-import com.jogamp.opengl.GLProfile;
-import com.jogamp.opengl.util.awt.TextRenderer;
-import java.awt.Font;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.util.FPSAnimator;
+import java.util.ArrayList;
+import java.util.logging.*;
+import pong_game.game.*;
+
 /**
  *
  * @author seishuku
@@ -24,6 +26,7 @@ public class Renderer {
 
     public static float cameraX = 0;
     public static float cameraY = 0;
+
     //Cria a janela de rendeziracao do JOGL
     public static void init() {
         GLProfile.initSingleton();
@@ -33,7 +36,6 @@ public class Renderer {
         window.setSize(screenWidth, screenHeight);
         window.setResizable(false);
         //window.setFullscreen(true);
-        //Habilita o teclado : cena
         window.addGLEventListener(new EventListener());
         window.addMouseListener(new MouseInput());
         window.addKeyListener(new KeyInput());
@@ -53,6 +55,7 @@ public class Renderer {
 
         //window.setFullscreen(true);        
         window.setVisible(true);
+
     }
 
     public static void render() {
