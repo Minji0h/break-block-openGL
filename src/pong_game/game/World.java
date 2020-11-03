@@ -2,6 +2,7 @@ package pong_game.game;
 
 import pong_game.game.GameObject;
 import java.util.ArrayList;
+import pong_game.graphics.EventListener;
 
 /**
  *
@@ -22,6 +23,7 @@ public class World {
         for (GameObject go : gameObjects) {
             go.render();
         }
+
     }
 
     public static void addObject(GameObject go) {

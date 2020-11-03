@@ -2,6 +2,7 @@ package pong_game.Input;
 
 import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
+import pong_game.graphics.EventListener;
 
 /**
  *
@@ -13,6 +14,20 @@ public class KeyInput implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
+        if (EventListener.paddle != null) {
+            float xpos = 0;
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_LEFT:
+                    xpos = (float) EventListener.paddle.getXPos();
+                    EventListener.paddle.update((float) xpos - 0.1f);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    xpos = (float) EventListener.paddle.getXPos();
+                    EventListener.paddle.setXPos((float) xpos + 0.1f);
+                    break;
+            }
+        }
+
     }
 
     public void keyReleased(KeyEvent e) {

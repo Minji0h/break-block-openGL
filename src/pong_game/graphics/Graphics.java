@@ -40,6 +40,27 @@ public class Graphics {
         gl.glTranslatef(-x, -y, 0);
     }
 
+    public static void createPaddle(float x, float y, float width, float height) {
+        GL2 gl = EventListener.gl;
+
+        gl.glTranslatef(x, y, 0);
+        gl.glRotatef(-rotation, 0, 0, 1);
+
+        gl.glColor4d(0.196078f, 0.8f, 0.6f, 1);
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glVertex2f(-width / 2, -height / 2);
+        gl.glVertex2f(width / 2, -height / 2);
+        gl.glVertex2f(width / 2, height / 2);
+        gl.glVertex2f(-width / 2, height / 2);
+
+        gl.glEnd();
+        gl.glFlush();
+
+        gl.glRotatef(rotation, 0, 0, 1);
+        gl.glTranslatef(-x, -y, 0);
+
+    }
+
     public static void drawImage(ImageResource image, float x, float y, float width, float height) {
         GL2 gl = EventListener.gl;
         Texture tex = image.getTexture();

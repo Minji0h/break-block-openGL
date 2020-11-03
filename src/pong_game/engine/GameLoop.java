@@ -1,8 +1,11 @@
 package pong_game.engine;
 
+import com.jogamp.newt.event.KeyEvent;
 import pong_game.game.World;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pong_game.Input.KeyInput;
+import pong_game.graphics.EventListener;
 import pong_game.graphics.Renderer;
 
 public class GameLoop {
@@ -45,8 +48,9 @@ public class GameLoop {
                             Logger.getLogger(GameLoop.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-
+                   
                 }
+
             }
         };
         thread.setName("Game Loop");

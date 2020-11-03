@@ -7,6 +7,7 @@ package pong_game.Input;
 
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
+import pong_game.graphics.EventListener;
 import pong_game.graphics.Renderer;
 
 /**
