@@ -46,7 +46,7 @@ public class Graphics {
         GL2 gl = EventListener.gl;
 
         double limit = 2 * Math.PI;
-        double i, rX = 15f, rY = 15f;
+        double i, rX = 5f, rY = 5f;
         gl.glColor4f(red, green, blue, alpha);
         gl.glBegin(GL2.GL_POLYGON);
         for (i = 0; i < limit; i += 0.01) {

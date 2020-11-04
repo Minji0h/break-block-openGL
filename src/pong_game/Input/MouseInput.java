@@ -80,6 +80,12 @@ public class MouseInput implements MouseListener {
                 } else if (tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]) {
                     System.exit(0);
                 }
+
+            /*System.out.println(tx >= IniciarPos[0] && tx <= IniciarPos[1]);
+            System.out.println(ty <= IniciarPos[2]);
+            System.out.println(ty);
+            System.out.println(IniciarPos[2]);*/
+
             }
 
         }

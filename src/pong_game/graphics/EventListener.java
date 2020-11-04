@@ -9,7 +9,12 @@ import com.jogamp.opengl.util.gl2.GLUT;
 import pong_game.Menu.Botao;
 import pong_game.Menu.Menu;
 import pong_game.game.Player;
+
 import pong_game.game.*;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.resource.ImageResource;
 
 /**
@@ -68,14 +73,20 @@ public class EventListener implements GLEventListener {
             case 1:
                 gl.glClearColor(0, 0, 0, 1);
                 gl.glPushMatrix();
+
                 gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+
+                gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+
                 gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
                 gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
                 World.render();
                 player.drawLifePoints();
                 paddle.drawPaddle();
                 ball.drawBall();
+
                 Block.ConstroiOsBloquinho();
+
                 break;
             case 2:
                 System.out.println("SAIR");
@@ -96,6 +107,12 @@ public class EventListener implements GLEventListener {
         gl.glOrtho(-Renderer.unitsWide / 2, Renderer.unitsWide / 2, -unitsTall / 2, unitsTall / 2, -1, 1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
 
+    }
+
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }

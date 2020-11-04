@@ -39,7 +39,6 @@ public class GameLoop {
                         }
                     }
                     Renderer.render();
-
                     long timeTaken = System.nanoTime() - currentTime;
                     if (targetTime > timeTaken) {
                         try {
@@ -61,5 +60,4 @@ public class GameLoop {
         return 1.0f / 1000000000 * targetTime;
     }
 
-    
 }

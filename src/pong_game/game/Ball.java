@@ -17,14 +17,20 @@ public class Ball {
     private final float limitBottom;
     private final float initialY;
     private String direction;
+    private float limitTop;
+    private float limitBottom;
+    private float initialY;
+    private String directionVertical;
+    private String directionHorizontal;
 
     public Ball() {
-        this.initialY = -2.286f * 100;
+        this.initialY = -62.5f;
         this.X = 0;
         this.Y = this.initialY;
-        this.limitTop = -2.286f + 180f;
+        this.limitTop = -60.286f;
         this.limitBottom = 0;
-        this.direction = null;
+        this.directionVertical = null;
+        this.directionHorizontal = null;
         this.moving = false;
 
     }
@@ -40,7 +46,13 @@ public class Ball {
 
     public void changeMoveStatus() {
         this.moving = !this.moving;
-        this.direction = "up";
+        this.directionVertical = "up";
+        int rand = (int) Math.random() + 99;
+        if (rand > 0) {
+            this.directionHorizontal = "right";
+        } else {
+            this.directionHorizontal = "left";
+        }
 
     }
 
@@ -61,31 +73,86 @@ public class Ball {
     }
 
     public void movingBall() {
-
-        float limitLeft = -390f;
-        float limitRight = 390f;
-        float padX = EventListener.paddle.getXPos();
-        float padY = EventListener.paddle.getYPos();
-
         if (this.moving) {
+            String col = verifyColision();
+            if (col != "Nop") {
+                if (col == "right") {
+                    this.directionHorizontal = "left";
+                } else if (col == "left") {
+                    this.directionHorizontal = "right";
+                } else if (col == "paddle right") {
+                    this.directionVertical = "up";
+                    this.directionHorizontal = "right";
 
-            if (this.X <= -390f) {
-                this.X = -390f;
-            } else if (this.X >= 390f) {
-                this.X = 390f;
-            } else if (this.X + 150f >= limitRight) {
-                this.X = this.X + (0.044f * 100);
-            } else if (this.X + 150f <= limitLeft) {
-                this.X = this.X - (0.044f * 100);
-            }
-            if (this.Y <= initialY - 100) {
-                this.Y = initialY;
-            } else if (this.Y >= initialY) {
-                this.Y = this.Y + (0.044f * 100);
-            }
+                } else if (col == "paddle left") {
+                    this.directionVertical = "up";
+                    this.directionHorizontal = "left";
+                } else if (col == "top right") {
+                    this.directionHorizontal = "left";
+                    this.directionVertical = "down";
+                } else if (col == "top left") {
+                    this.directionHorizontal = "right";
+                    this.directionVertical = "down";
+                } else if (col == "bottom") {
+                    this.directionVertical = "down";
 
+                } else if (col == "top") {
+                    this.directionVertical = "down";
+                    int rand = (int) Math.random();
+                    if (rand == 1) {
+                        this.directionHorizontal = "right";
+                    } else {
+                        this.directionHorizontal = "left";
+                    }
+                }
+            }
+            if (this.directionHorizontal == "right") {
+                this.X = this.X + 0.5f;
+            } else if (this.directionHorizontal == "left") {
+                this.X = this.X - 0.5f;
+            }
+            if (this.directionVertical == "down") {
+                this.Y = this.Y - 0.5f;
+            } else if (this.directionVertical == "up") {
+                this.Y = this.Y + 0.5f;
+            }
         } else {
             this.X = EventListener.paddle.getXPos();
         }
+    }
+
+    private String verifyColision() {
+        float paddleX = EventListener.paddle.getXPos();
+        float paddleY = EventListener.paddle.getYPos();
+        float paddleWidth = EventListener.paddle.getWidth();
+        float paddleHeight = EventListener.paddle.getHeight() / 2;
+        if ((this.Y == paddleY + (paddleHeight * 2))) {
+            if (this.X <= paddleX + paddleWidth) {
+                if (this.X >= paddleX - paddleWidth) {
+                    if (this.X > paddleX - paddleWidth && this.X < paddleX) {
+                        return "paddle left";
+                    }
+                    if (this.X < paddleX + paddleWidth && this.X > paddleX) {
+                        return "paddle right";
+
+                    }
+                }
+            }
+        } else if (this.X == 95f) {
+            return "right";
+        } else if (this.X == -95f) {
+            return "left";
+        } else if (this.Y == 60f && this.X == 95f) {
+            return "top right";
+        } else if (this.Y == 60f && this.X == -95f) {
+            return "top left";
+        } else if (this.Y > -(paddleY + paddleHeight)) {
+            return "bottom";
+        } else if (this.Y == 70f) {
+            return "top";
+        }
+
+        return "Nop";
+
     }
 }

@@ -22,14 +22,24 @@ public class Paddle {
     private float width;
 
     public Paddle() {
-        this.xPos = 0 * 100;
-        this.yPos = -2.5f * 100;
-        this.height = 0.1f * 100;
-        this.width = 2f * 100;
+        this.xPos = 0;
+        this.yPos = -70.5f;
+        this.height = 5f;
+        this.width = 100f;
+    }
+
+    public float getHeight() {
+        return this.height;
+    }
+
+    public float getWidth() {
+        return this.width;
     }
 
     public void drawPaddle() {
-        Graphics.setColor(0.196078f, 0.8f, 0.6f, 1);
+//        Graphics.setColor(0.196078f, 0.8f, 0.6f, 1);
+        Graphics.setColor(1, 1, 0, 1);
+
         Graphics.createPaddle(this.xPos, this.yPos, this.width, this.height);
     }
 
@@ -54,12 +64,13 @@ public class Paddle {
     }
 
     public void update(float x) {
-        if (x > 390) {
+        if (x > 95f) {
             return;
-        } else if (x < -(390)) {
+        } else if (x < -(95f)) {
             return;
         }
         this.xPos = x;
+        System.out.println(xPos);
     }
 
 }

@@ -26,7 +26,7 @@ public class KeyInput implements KeyListener {
                     EventListener.paddle.update((float) xpos + (0.1f * 100));
                     break;
                 case KeyEvent.VK_SPACE:
-                    if (!EventListener.ball.checkMoving()) {
+                    if (!EventListener.ball.checkMoving() && EventListener.op == 1) {
                         EventListener.ball.changeMoveStatus();
                         System.out.println(EventListener.ball.toString());
                         break;
