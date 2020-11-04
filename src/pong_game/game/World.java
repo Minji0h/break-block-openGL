@@ -2,8 +2,7 @@ package pong_game.game;
 
 import pong_game.game.GameObject;
 import java.util.ArrayList;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.graphics.EventListener;
 
 /**
@@ -32,8 +31,4 @@ public class World {
         gameObjects.add(go);
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
 }

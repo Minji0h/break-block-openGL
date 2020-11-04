@@ -4,8 +4,6 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import java.awt.Color;
 import java.awt.Font;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import pong_game.graphics.EventListener;
 import pong_game.graphics.Renderer;
 
@@ -85,8 +83,5 @@ public class Player {
         gl.glFlush();
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
+
 }

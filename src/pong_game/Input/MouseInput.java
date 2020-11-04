@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pong_game.Input;
+
 import pong_game.Input.*;
 import pong_game.graphics.EventListener;
 import com.jogamp.newt.event.WindowAdapter;
@@ -68,19 +69,17 @@ public class MouseInput implements MouseListener {
             tx = ((2 * (Renderer.unitsWide / 2) * Menu.mouseX) / Renderer.getWindowWidth()) - (Renderer.unitsWide / 2);
             ty = (((2 * (unitsTall / 2)) * (Menu.mouseY - Renderer.getWindowHeight())) / -Renderer.getWindowHeight()) - (unitsTall / 2);
 
-            System.out.println(tx >= IniciarPos[0] && tx <= IniciarPos[1]);
-            System.out.println(ty <= IniciarPos[2]);
-            System.out.println(ty);
-            System.out.println(IniciarPos[2]);
 
-            if (tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]) {
-                EventListener.op = 1;
-            } else if (tx >= ContinuarPos[0] && tx <= ContinuarPos[1] && ty <= ContinuarPos[2] && ty >= ContinuarPos[3]) {
-                EventListener.op = 2;
-            } else if (tx >= RegrasPos[0] && ty <= RegrasPos[1] && ty <= RegrasPos[2] && ty >= RegrasPos[3]) {
-                EventListener.op = 3;
-            } else if (tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]) {
-                System.exit(0);
+            if (EventListener.op == 0) {
+                if (tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]) {
+                    EventListener.op = 1;
+                } else if (tx >= ContinuarPos[0] && tx <= ContinuarPos[1] && ty <= ContinuarPos[2] && ty >= ContinuarPos[3]) {
+                    EventListener.op = 2;
+                } else if (tx >= RegrasPos[0] && ty <= RegrasPos[1] && ty <= RegrasPos[2] && ty >= RegrasPos[3]) {
+                    EventListener.op = 3;
+                } else if (tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]) {
+                    System.exit(0);
+                }
             }
 
         }

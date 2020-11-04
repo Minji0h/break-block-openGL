@@ -109,17 +109,17 @@ public class Graphics {
         
     }
     
-    public static void DrawBlocks(){
-        int altura = 1;
-        int largura = 1;
-        for(int i = 0; i<=100;i++){
-            Block bloco = new Block(100f, 200f, 100f, 200f);
-            bloco.constructor();
-            
-            Blocks.add(bloco);
-
-        }
-    }
+//    public static void DrawBlocks(){
+//        int altura = 1;
+//        int largura = 1;
+//        for(int i = 0; i<=100;i++){
+//            Block bloco = new Block(100f, 200f, 100f, 200f);
+//            bloco.constructor();
+//            
+//            Blocks.add(bloco);
+//
+//        }
+//    }
 
     public static void setColor(float r, float g, float b, float a) {
         red = Math.max(0, Math.min(1, r));

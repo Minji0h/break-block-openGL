@@ -5,7 +5,6 @@ import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.*;
-import pong_game.Menu.Menu;
 
 /**
  *
@@ -19,7 +18,6 @@ public class Renderer {
 
     public static float unitsWide = 300;
 
-    public static float unitsWide = 1000;
 
     private static GLProfile profile = GLProfile.get(GLProfile.GL2);
 

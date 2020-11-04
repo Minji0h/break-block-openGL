@@ -5,8 +5,7 @@
  */
 package pong_game.game;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.Input.MouseInput;
 import pong_game.graphics.Graphics;
 import pong_game.graphics.Renderer;
@@ -63,8 +62,4 @@ public class Paddle {
         this.xPos = x;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
-    }
 }

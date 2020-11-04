@@ -1,10 +1,8 @@
 package pong_game.game;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.graphics.EventListener;
 import pong_game.graphics.Graphics;
-import pong_game.graphics.Renderer;
 
 /**
  *
@@ -15,9 +13,9 @@ public class Ball {
     private float X;
     private float Y;
     private boolean moving;
-    private float limitTop;
-    private float limitBottom;
-    private float initialY;
+    private final float limitTop;
+    private final float limitBottom;
+    private final float initialY;
     private String direction;
 
     public Ball() {
@@ -44,11 +42,6 @@ public class Ball {
         this.moving = !this.moving;
         this.direction = "up";
 
-    }
-
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
     public float getX() {
