@@ -1,5 +1,4 @@
 package pong_game.game;
-
 import pong_game.graphics.*;
 
 /**
@@ -24,6 +23,7 @@ public class GameObject {
     }
 
     public void render() {
+        Graphics.DrawBlocks();
         animations[currentAnimation].play();
         Graphics.setRotation(rotation);
         if (animations[currentAnimation].getImage() != null) {

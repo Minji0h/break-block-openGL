@@ -1,20 +1,30 @@
 package pong_game.game;
 
+import com.jogamp.opengl.GL2;
 import pong_game.graphics.Animation;
+import static pong_game.graphics.EventListener.gl;
 import pong_game.graphics.Graphics;
 
-/**
- *
- * @author seishuku
- */
 public class Block extends GameObject {
 
     private int hits;
     private int powerUp;
-    private float x;
-    private float y;
-
-    public Block(float xPos, float yPos) {
+    private float posX;
+    private float posX2;
+    private float posY;
+    private float posY2;
+    private float r;
+    private float g;
+    private float b;
+    
+    /**
+     *
+     * @param posX
+     * @param posX2
+     * @param posY
+     * @param posY2
+     */
+    public Block(float posX, float posX2, float posY, float posY2) {
 
         this.hits = 0;
         /*
@@ -23,14 +33,23 @@ public class Block extends GameObject {
         3 - pad-size-increase
          */
         this.powerUp = (int) (Math.random() * ((3 - 1) + 1)) + 1;
-        this.x = xPos;
-        this.y = yPos;
+        this.posX = posX;
+        this.posX2 = posX2;
+        this.posY = posY;
+        this.posY2 = posY2;
         float r = (float) (Math.random() * ((1 - 0) + 1)) + 0;
         float g = (float) (Math.random() * ((1 - 0) + 1)) + 0;
         float b = (float) (Math.random() * ((1 - 0) + 1)) + 0;
-        Graphics.setColor(r, g, b, 1);
-        Graphics.fillRect(this.x, this.y, 0.9f, 0.5f);
+    }
 
+    public void constructor(){
+        gl.glColor3f(r, g, b);
+        gl.glBegin(GL2.GL_QUADS);
+        gl.glVertex2f(posX, posY);
+        gl.glVertex2f(posX, posY2);
+        gl.glVertex2f(posX2, posY2);
+        gl.glVertex2f(posX2, posY);
+        gl.glEnd();
     }
 
 }

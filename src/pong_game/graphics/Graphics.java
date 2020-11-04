@@ -3,6 +3,8 @@ package pong_game.graphics;
 import pong_game.graphics.EventListener;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.util.texture.Texture;
+import java.util.ArrayList;
+import pong_game.game.Block;
 import pong_game.resource.ImageResource;
 
 /**
@@ -19,7 +21,7 @@ public class Graphics {
 
     // rotação
     private static float rotation = 0;
-
+    private static ArrayList<Block> Blocks = new ArrayList<>();
     public static void fillRect(float x, float y, float width, float height) {
         GL2 gl = EventListener.gl;
 
@@ -91,6 +93,19 @@ public class Graphics {
 
         gl.glRotatef(rotation, 0, 0, 1);
         gl.glTranslatef(-x, -y, 0);
+        
+    }
+    
+    public static void DrawBlocks(){
+        int altura = 1;
+        int largura = 1;
+        for(int i = 0; i<=100;i++){
+            Block bloco = new Block(100f, 200f, 100f, 200f);
+            bloco.constructor();
+            
+            Blocks.add(bloco);
+
+        }
     }
 
     public static void setColor(float r, float g, float b, float a) {

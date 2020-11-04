@@ -17,8 +17,12 @@ public class TestPlayer extends GameObject {
     public float runSpeed = 2.0f;
 
     public TestPlayer() {
+ 
+        //
         animations = new Animation[1];
+        //
         animations[0] = new Animation();
+        //
         animations[0].frames = new ImageResource[1];
 //        animations[0].frames[0] = new ImageResource("../res/paper_ball.png");
 //        animations[0].frames[1] = new ImageResource("../res/ball_1.jpg");
