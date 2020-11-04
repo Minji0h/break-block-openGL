@@ -1,20 +1,15 @@
 package pong_game.graphics;
 
-<<<<<<< Updated upstream
-import com.jogamp.opengl.GL2;
-import com.jogamp.opengl.GLAutoDrawable;
-import com.jogamp.opengl.GLEventListener;
+
 import pong_game.game.*;
-=======
 
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
-import com.jogamp.opengl.util.gl2.GLUT;
 import pong_game.Menu.Botao;
 import pong_game.Menu.Menu;
 import pong_game.game.Player;
->>>>>>> Stashed changes
+
 import pong_game.resource.ImageResource;
 
 /**
@@ -26,9 +21,9 @@ public class EventListener implements GLEventListener {
     public static GL2 gl = null;
     public static ImageResource image = null;
     Player player = new Player();
-<<<<<<< Updated upstream
+
     public static Paddle paddle = new Paddle();
-=======
+
     public Botao Iniciar;
     public Botao Continuar;
     public Botao Regras;
@@ -38,7 +33,7 @@ public class EventListener implements GLEventListener {
     public int larguraFrame;
     public int alturaFrame;
 
->>>>>>> Stashed changes
+
 
     public void init(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
@@ -53,14 +48,14 @@ public class EventListener implements GLEventListener {
 
     public void display(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
-<<<<<<< Updated upstream
+
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
         gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
         World.render();
         gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
         player.drawLifePoints();
         paddle.drawPaddle();
-=======
+
         gl.glClearColor(0, 0, 0, 1);
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity(); //lê a matriz identidade
@@ -70,7 +65,7 @@ public class EventListener implements GLEventListener {
         gl.glFlush();
 
 
->>>>>>> Stashed changes
+
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {

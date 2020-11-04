@@ -4,14 +4,20 @@
  * and open the template in the editor.
  */
 package pong_game.Input;
-
+import pong_game.Input.*;
+import pong_game.graphics.EventListener;
+import com.jogamp.newt.event.WindowAdapter;
+import com.jogamp.newt.event.WindowEvent;
+import com.jogamp.newt.opengl.GLWindow;
+import com.jogamp.opengl.*;
 import com.jogamp.newt.event.MouseEvent;
 import com.jogamp.newt.event.MouseListener;
-<<<<<<< Updated upstream
-import pong_game.graphics.EventListener;
-=======
+import static com.jogamp.opengl.GLProfile.GL2;
 import pong_game.Menu.Menu;
->>>>>>> Stashed changes
+import pong_game.game.World;
+import static pong_game.graphics.EventListener.gl;
+import static pong_game.graphics.EventListener.paddle;
+
 import pong_game.graphics.Renderer;
 
 /**
@@ -53,31 +59,35 @@ public class MouseInput implements MouseListener {
             float ContinuarPos[] = Menu.Continuar.getPontos();
             float RegrasPos[] = Menu.Regras.getPontos();
             float SairPos[] = Menu.Sair.getPontos();
-            
+
             Menu.mouseX = (float) e.getX();
             Menu.mouseY = (float) e.getY();
-            
-            float unitsTall =  Renderer.getWindowHeight() / (Renderer.getWindowWidth() / Renderer.unitsWide);
-            
-            tx = ((2 * (Renderer.unitsWide/2) * Menu.mouseX) / Renderer.getWindowWidth()) - (Renderer.unitsWide/2);
-            ty = (((2 * (unitsTall / 2)) * (Menu.mouseY-Renderer.getWindowHeight()) ) / - Renderer.getWindowHeight()) - (unitsTall/2);
-            
-            System.out.println(tx >= IniciarPos[0]&& tx <= IniciarPos[1] );
+
+            float unitsTall = Renderer.getWindowHeight() / (Renderer.getWindowWidth() / Renderer.unitsWide);
+
+            tx = ((2 * (Renderer.unitsWide / 2) * Menu.mouseX) / Renderer.getWindowWidth()) - (Renderer.unitsWide / 2);
+            ty = (((2 * (unitsTall / 2)) * (Menu.mouseY - Renderer.getWindowHeight())) / -Renderer.getWindowHeight()) - (unitsTall / 2);
+
+            System.out.println(tx >= IniciarPos[0] && tx <= IniciarPos[1]);
             System.out.println(ty <= IniciarPos[2]);
             System.out.println(ty);
             System.out.println(IniciarPos[2]);
-            
-            
-            if(tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]){
-                System.out.println("Botão 1");
-            }else if(tx >= ContinuarPos[0] && tx <= ContinuarPos[1] && ty <= ContinuarPos[2] && ty >= ContinuarPos[3]){
+
+            if (tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]) {
+                gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
+                World.render();
+                gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
+                //player.drawLifePoints();
+                paddle.drawPaddle();
+                //ball.drawBall();
+            } else if (tx >= ContinuarPos[0] && tx <= ContinuarPos[1] && ty <= ContinuarPos[2] && ty >= ContinuarPos[3]) {
                 System.out.println("Botão 2");
-            }else if(tx >= RegrasPos[0] && ty <= RegrasPos[1] && ty <= RegrasPos[2] && ty >= RegrasPos[3]){
+            } else if (tx >= RegrasPos[0] && ty <= RegrasPos[1] && ty <= RegrasPos[2] && ty >= RegrasPos[3]) {
                 System.out.println("Botão 3");
-            }else if(tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]){
+            } else if (tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]) {
                 System.exit(0);
             }
- 
+
         }
     }
 
