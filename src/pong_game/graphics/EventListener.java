@@ -85,7 +85,7 @@ public class EventListener implements GLEventListener {
                 paddle.drawPaddle();
                 ball.drawBall();
 
-                Block.ConstroiOsBloquinho();
+                //Block.ConstroiOsBloquinho();
 
                 break;
             case 2:

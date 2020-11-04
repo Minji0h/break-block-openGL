@@ -18,7 +18,7 @@ public class Block extends GameObject {
     private static float g;
     private static float b;
     public static Block bloquinho;
-    public static ArrayList Blocos = new ArrayList();
+    public static ArrayList<Block> Blocos = new ArrayList();
     public static int positionX = -10;
     public static int positionY = -10;
 

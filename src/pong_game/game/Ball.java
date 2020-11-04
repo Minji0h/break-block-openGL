@@ -1,6 +1,7 @@
 package pong_game.game;
 
 
+import static pong_game.game.Block.Blocos;
 import pong_game.graphics.EventListener;
 import pong_game.graphics.Graphics;
 
@@ -17,9 +18,6 @@ public class Ball {
     private final float limitBottom;
     private final float initialY;
     private String direction;
-    private float limitTop;
-    private float limitBottom;
-    private float initialY;
     private String directionVertical;
     private String directionHorizontal;
 
@@ -151,6 +149,16 @@ public class Ball {
         } else if (this.Y == 70f) {
             return "top";
         }
+        for(int i = 0;i<=200;i++){
+            Block bloco = Block.Blocos.get(i);
+            float[] pontos = bloco.getPontos();
+            if (this.X >= pontos[0] && this.X <= pontos[1] && this.Y <= pontos[2] && this.Y >= pontos[3]) {
+                Block.Blocos.remove(bloco);
+            }           
+            
+            
+        }
+        
 
         return "Nop";
 
