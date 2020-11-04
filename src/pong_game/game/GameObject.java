@@ -2,6 +2,7 @@ package pong_game.game;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.graphics.*;
 
 /**
@@ -26,6 +27,7 @@ public class GameObject {
     }
 
     public void render() {
+        Graphics.DrawBlocks();
         animations[currentAnimation].play();
         Graphics.setRotation(rotation);
         if (animations[currentAnimation].getImage() != null) {
