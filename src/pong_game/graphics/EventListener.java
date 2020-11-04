@@ -25,6 +25,7 @@ public class EventListener implements GLEventListener {
 
     public static Paddle paddle = new Paddle();
     public static Ball ball = new Ball();
+    //public static Block bloquinho = new Block();
 
     public Botao Iniciar;
     public Botao Continuar;

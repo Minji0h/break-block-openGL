@@ -4,11 +4,12 @@ import com.jogamp.opengl.GL2;
 import java.util.ArrayList;
 
 import static pong_game.graphics.EventListener.gl;
+import pong_game.graphics.Renderer;
 
 public class Block extends GameObject {
 
-    private int hits;
-    private int powerUp;
+    private final int hits;
+    private final int powerUp;
     private static float posX;
     private static float posX2;
     private static float posY;
@@ -53,17 +54,6 @@ public class Block extends GameObject {
         return posY2;
     }
 
-    public static float getR() {
-        return r;
-    }
-
-    public static float getG() {
-        return g;
-    }
-
-    public static float getB() {
-        return b;
-    }
 
     public static void constructor(Block Bloquinho) {
         gl.glColor3f(1, 0, 1);
@@ -75,16 +65,30 @@ public class Block extends GameObject {
         gl.glVertex2f(Bloquinho.posX2, Bloquinho.posY);
         gl.glEnd();
     }
-    public static void ConstroiOsBloquinho(){
-        
-        
-          
-           bloquinho = new Block(positionX,positionX+16,positionY, positionY + 8);
-           positionX = positionX + 17;
-           constructor(bloquinho);
-           Blocos.add(bloquinho);
 
-        
+    public static void ConstroiOsBloquinho() {
+        positionX = -150;
+        positionY = 55;
+
+        for (int i = 0; i <= 200; i++) {
+            if (positionX > Renderer.getWindowHeight()) {
+                positionY = positionY - 6;
+                positionX = -150;
+            }
+            bloquinho = new Block(positionX, positionX + 19, positionY, positionY - 5);
+            positionX = positionX + 20;
+            constructor(bloquinho);
+            Blocos.add(bloquinho);
+        }
+
+    }
+    public float[] getPontos(){
+        float vet[] = new float[4];
+        vet[0] = posX;
+        vet[1] = posX2;
+        vet[2] = posY;
+        vet[3] = posY2;
+        return vet;
     }
 
 }
