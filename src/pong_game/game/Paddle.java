@@ -29,6 +29,14 @@ public class Paddle {
         this.width = 100f;
     }
 
+    public float getHeight() {
+        return this.height;
+    }
+
+    public float getWidth() {
+        return this.width;
+    }
+
     public void drawPaddle() {
 //        Graphics.setColor(0.196078f, 0.8f, 0.6f, 1);
         Graphics.setColor(1, 1, 0, 1);
@@ -63,6 +71,7 @@ public class Paddle {
             return;
         }
         this.xPos = x;
+        System.out.println(xPos);
     }
 
     @Override
