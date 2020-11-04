@@ -19,8 +19,6 @@ public class Renderer {
 
     public static float unitsWide = 300;
 
-    public static float unitsWide = 1000;
-
     private static GLProfile profile = GLProfile.get(GLProfile.GL2);
 
     public static float cameraX = 0;

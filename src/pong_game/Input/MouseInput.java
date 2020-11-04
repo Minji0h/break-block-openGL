@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pong_game.Input;
+
 import pong_game.Input.*;
 import pong_game.graphics.EventListener;
 import com.jogamp.newt.event.WindowAdapter;
@@ -68,10 +69,10 @@ public class MouseInput implements MouseListener {
             tx = ((2 * (Renderer.unitsWide / 2) * Menu.mouseX) / Renderer.getWindowWidth()) - (Renderer.unitsWide / 2);
             ty = (((2 * (unitsTall / 2)) * (Menu.mouseY - Renderer.getWindowHeight())) / -Renderer.getWindowHeight()) - (unitsTall / 2);
 
-            System.out.println(tx >= IniciarPos[0] && tx <= IniciarPos[1]);
+            /*System.out.println(tx >= IniciarPos[0] && tx <= IniciarPos[1]);
             System.out.println(ty <= IniciarPos[2]);
             System.out.println(ty);
-            System.out.println(IniciarPos[2]);
+            System.out.println(IniciarPos[2]);*/
 
             if (tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]) {
                 EventListener.op = 1;

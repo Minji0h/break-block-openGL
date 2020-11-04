@@ -11,7 +11,6 @@ import pong_game.Menu.Menu;
 import pong_game.game.Player;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import pong_game.game.*;
 import pong_game.resource.ImageResource;
 
 /**
@@ -67,13 +66,15 @@ public class EventListener implements GLEventListener {
                 gl.glFlush();
                 break;
             case 1:
+                gl.glClearColor(0, 0, 0, 1);
+                gl.glPushMatrix();
                 gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
                 gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
                 World.render();
                 gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
                 player.drawLifePoints();
                 paddle.drawPaddle();
-                //ball.drawBall();
+                ball.drawBall();
                 break;
             case 2:
                 System.out.println("SAIR");
@@ -96,11 +97,9 @@ public class EventListener implements GLEventListener {
 
     }
 
-
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
 
 }

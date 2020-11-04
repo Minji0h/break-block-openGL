@@ -55,15 +55,15 @@ public class Player {
         }
         GL2 gl = EventListener.gl;
 
-        gl.glColor4f(0.5f, 0, 0, 1);
-        gl.glBegin(GL2.GL_QUADS);
-        gl.glVertex2f(Renderer.getWindowWidth(), Renderer.getWindowHeight());
-        gl.glVertex2f(Renderer.getWindowWidth(), 200f);
-        gl.glVertex2f(-Renderer.getWindowWidth(), 200f);
-        gl.glVertex2f(-Renderer.getWindowWidth(), Renderer.getWindowHeight());
-
-        gl.glEnd();
-        gl.glFlush();
+//        gl.glColor4f(0.5f, 0, 0, 1);
+//        gl.glBegin(GL2.GL_QUADS);
+//        gl.glVertex2f(Renderer.getWindowWidth(), Renderer.getWindowHeight());
+//        gl.glVertex2f(Renderer.getWindowWidth(), 200f);
+//        gl.glVertex2f(-Renderer.getWindowWidth(), 200f);
+//        gl.glVertex2f(-Renderer.getWindowWidth(), Renderer.getWindowHeight());
+//
+//        gl.glEnd();
+//        gl.glFlush();
         textRenderer = new TextRenderer(new Font("Comic Sans MS Negrito", Font.BOLD, 30));
 
         gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
@@ -78,8 +78,8 @@ public class Player {
         textRenderer.beginRendering(Renderer.screenWidth, Renderer.screenHeight);
         textRenderer.setColor(Color.WHITE);
         String lifeText;
-        lifeText = Integer.toString(life);
-        textRenderer.draw(lifeText, Renderer.getWindowWidth() - 30, Renderer.getWindowHeight() - 35);
+        lifeText = "Vidas: " + Integer.toString(life);
+        textRenderer.draw(lifeText, Renderer.getWindowWidth() - 150, Renderer.getWindowHeight() - 35);
         textRenderer.endRendering();
         gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
         gl.glFlush();

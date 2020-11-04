@@ -21,10 +21,10 @@ public class Ball {
     private String direction;
 
     public Ball() {
-        this.initialY = -2.286f * 100;
+        this.initialY = -62.5f;
         this.X = 0;
         this.Y = this.initialY;
-        this.limitTop = -2.286f + 180f;
+        this.limitTop = -60.286f;
         this.limitBottom = 0;
         this.direction = null;
         this.moving = false;
@@ -69,8 +69,8 @@ public class Ball {
 
     public void movingBall() {
 
-        float limitLeft = -390f;
-        float limitRight = 390f;
+        float limitLeft = -95f;
+        float limitRight = 95f;
         float padX = EventListener.paddle.getXPos();
         float padY = EventListener.paddle.getYPos();
 
@@ -80,9 +80,9 @@ public class Ball {
                 this.X = -390f;
             } else if (this.X >= 390f) {
                 this.X = 390f;
-            } else if (this.X + 150f >= limitRight) {
+            } else if (this.X + 5f >= limitRight) {
                 this.X = this.X + (0.044f * 100);
-            } else if (this.X + 150f <= limitLeft) {
+            } else if (this.X + 5f <= limitLeft) {
                 this.X = this.X - (0.044f * 100);
             }
             if (this.Y <= initialY - 100) {
