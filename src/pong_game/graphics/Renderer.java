@@ -6,10 +6,6 @@ import com.jogamp.newt.event.WindowAdapter;
 import com.jogamp.newt.event.WindowEvent;
 import com.jogamp.newt.opengl.GLWindow;
 import com.jogamp.opengl.*;
-import com.jogamp.opengl.util.FPSAnimator;
-import java.util.ArrayList;
-import java.util.logging.*;
-import pong_game.game.*;
 
 /**
  *
@@ -21,7 +17,7 @@ public class Renderer {
     public static int screenWidth = 640;
     public static int screenHeight = 360;
 
-    public static float unitsWide = 10;
+    public static float unitsWide = 1000;
     private static GLProfile profile = GLProfile.get(GLProfile.GL2);
 
     public static float cameraX = 0;
@@ -41,14 +37,10 @@ public class Renderer {
         window.addKeyListener(new KeyInput());
 
         window.requestFocus();
-//        FPSAnimator animator = new FPSAnimator(window, 60);
-//        animator.start(); //inicia o loop de animacao
-
         //encerrar a aplicacao adequadamente
         window.addWindowListener(new WindowAdapter() {
             @Override
             public void windowDestroyNotify(WindowEvent e) {
-//                animator.stop();
                 System.exit(0);
             }
         });
@@ -76,7 +68,6 @@ public class Renderer {
 
     public static int getWindowHeight() {
         return window.getHeight();
-
     }
 
 }

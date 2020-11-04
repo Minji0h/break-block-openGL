@@ -48,7 +48,7 @@ public class GameLoop {
                             Logger.getLogger(GameLoop.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                   
+                    EventListener.ball.movingBall();
                 }
 
             }
@@ -60,4 +60,6 @@ public class GameLoop {
     public static float updateDelta() {
         return 1.0f / 1000000000 * targetTime;
     }
+
+    
 }

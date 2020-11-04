@@ -4,6 +4,8 @@ import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.util.awt.TextRenderer;
 import java.awt.Color;
 import java.awt.Font;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import pong_game.graphics.EventListener;
 import pong_game.graphics.Renderer;
 
@@ -56,8 +58,8 @@ public class Player {
         gl.glColor4f(0.5f, 0, 0, 1);
         gl.glBegin(GL2.GL_QUADS);
         gl.glVertex2f(Renderer.getWindowWidth(), Renderer.getWindowHeight());
-        gl.glVertex2f(Renderer.getWindowWidth(), 2f);
-        gl.glVertex2f(-Renderer.getWindowWidth(), 2f);
+        gl.glVertex2f(Renderer.getWindowWidth(), 200f);
+        gl.glVertex2f(-Renderer.getWindowWidth(), 200f);
         gl.glVertex2f(-Renderer.getWindowWidth(), Renderer.getWindowHeight());
 
         gl.glEnd();
@@ -80,5 +82,11 @@ public class Player {
         textRenderer.draw(lifeText, Renderer.getWindowWidth() - 30, Renderer.getWindowHeight() - 35);
         textRenderer.endRendering();
         gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
+        gl.glFlush();
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

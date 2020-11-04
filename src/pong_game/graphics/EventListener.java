@@ -3,6 +3,8 @@ package pong_game.graphics;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import pong_game.game.*;
 import pong_game.resource.ImageResource;
 
@@ -16,6 +18,7 @@ public class EventListener implements GLEventListener {
     public static ImageResource image = null;
     Player player = new Player();
     public static Paddle paddle = new Paddle();
+    public static Ball ball = new Ball();
 
     public void init(GLAutoDrawable drawable) {
         gl = drawable.getGL().getGL2();
@@ -36,6 +39,7 @@ public class EventListener implements GLEventListener {
         gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
         player.drawLifePoints();
         paddle.drawPaddle();
+        ball.drawBall();
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -48,6 +52,11 @@ public class EventListener implements GLEventListener {
         gl.glOrtho(-Renderer.unitsWide / 2, Renderer.unitsWide / 2, -unitsTall / 2, unitsTall / 2, -1, 1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
 
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }
