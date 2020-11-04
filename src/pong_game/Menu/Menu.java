@@ -25,8 +25,8 @@ public abstract class Menu{
         Iniciar.pontoY = 50f;
         Iniciar.pontoY2 = 30f;
         Iniciar.texto = "Iniciar";
-        Iniciar.posX = 250;
-        Iniciar.posY = 410;
+        Iniciar.posX = 285;
+        Iniciar.posY = 260;
         Iniciar.Botao();
         //Botão Continuar
         Continuar = new Botao();
@@ -35,8 +35,8 @@ public abstract class Menu{
         Continuar.pontoY = 20f;
         Continuar.pontoY2 = 0f;
         Continuar.texto = "Continuar";
-        Continuar.posX = 230;
-        Continuar.posY = 320;
+        Continuar.posX = 275;
+        Continuar.posY = 195;
         Continuar.Botao();
         //Botão Regras
         Regras = new Botao();
@@ -45,8 +45,8 @@ public abstract class Menu{
         Regras.pontoY = -10f;
         Regras.pontoY2 = -30f;
         Regras.texto = "Regras";
-        Regras.posX = 250;
-        Regras.posY = 230;
+        Regras.posX = 285;
+        Regras.posY = 130;
         Regras.Botao();
         //Botão Sair
         Sair = new Botao();
@@ -55,8 +55,8 @@ public abstract class Menu{
         Sair.pontoY = -40f;
         Sair.pontoY2 = -60f;
         Sair.texto = "Sair";
-        Sair.posX = 260;
-        Sair.posY = 140;
+        Sair.posX = 300;
+        Sair.posY = 65;
         Sair.Botao();
     }
 }

@@ -9,7 +9,7 @@ import pong_game.graphics.Renderer;
 public class Block extends GameObject {
 
     private final int hits;
-    private final int powerUp;
+    private static int powerUp;
     private static float posX;
     private static float posX2;
     private static float posY;
@@ -22,20 +22,26 @@ public class Block extends GameObject {
     public static int positionX = -10;
     public static int positionY = -10;
 
-    public Block(float posX, float posX2, float posY, float posY2) {
+    public Block(float posX, float posX2, float posY, float posY2, int powerUp) {
         hits = 0;
-        powerUp = (int) (Math.random() * ((3 - 1) + 1)) + 1;
+        this.powerUp = powerUp;
         this.posX = posX;
         this.posX2 = posX2;
         this.posY = posY;
         this.posY2 = posY2;
-        float r = (float) (Math.random() * ((1 - 0) + 1)) + 0;
-        float g = (float) (Math.random() * ((1 - 0) + 1)) + 0;
-        float b = (float) (Math.random() * ((1 - 0) + 1)) + 0;
     }
 
     public static void constructor(Block Bloquinho) {
-        gl.glColor3f(1, 0, 1);
+        switch (powerUp){
+            case 1:
+                gl.glColor3f(0.90f, 0.22f, 0.27f);
+                break;
+            case 2:
+                gl.glColor3f(0.11f, 0.20f, 0.34f);
+                break;             	
+            
+        }
+        
         //gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
         gl.glBegin(GL2.GL_QUADS);
         gl.glVertex2f(Bloquinho.posX, Bloquinho.posY);
@@ -48,13 +54,22 @@ public class Block extends GameObject {
     public static void ConstroiOsBloquinho() {
         positionX = -150;
         positionY = 55;
+        int powerUps = 0;
 
-        for (int i = 0; i <= 200; i++) {
-            if (positionX > Renderer.getWindowHeight()) {
+        for (int i = 0; i <= 100; i++) {
+            System.out.println(positionX);
+            if (positionX >= Renderer.getWindowHeight()/2) {
                 positionY = positionY - 6;
                 positionX = -150;
+                
             }
-            bloquinho = new Block(positionX, positionX + 19, positionY, positionY - 5);
+            if(i==7 || i==10 || i == 25 || i == 35||i == 76){
+                powerUps = 1;
+            }
+            else{
+                powerUps = 2;
+            }
+            bloquinho = new Block(positionX, positionX + 19, positionY, positionY - 5, powerUps);
             positionX = positionX + 20;
             constructor(bloquinho);
             Blocos.add(bloquinho);

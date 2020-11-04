@@ -19,20 +19,23 @@ public class Botao {
     public String texto;
     
     public void Botao(){
+        if(texto == "Continuar"){
+        gl.glColor3f(1f, 0.85f, 0.34f);
+        }else{
         gl.glColor3f(0.99f, 0.99f, 0.21f);
+        }
         gl.glBegin(GL2.GL_QUADS);
         gl.glVertex2f(pontoX, pontoY);
         gl.glVertex2f(pontoX, pontoY2);
         gl.glVertex2f(pontoX2, pontoY2);
         gl.glVertex2f(pontoX2, pontoY);
         gl.glEnd();
-        //TextRenderer textRenderer = new TextRenderer(new Font("Comic Sans MS Negrito", Font.BOLD, 30));
-        //gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
-        //Retorna a largura e altura da janela
-       // textRenderer.beginRendering(Renderer.screenWidth, Renderer.screenHeight);
-        //textRenderer.setColor(Color.WHITE);
-        //textRenderer.draw(texto,posX ,posY);
-        //textRenderer.endRendering();
+        TextRenderer textRenderer = new TextRenderer(new Font("Comic Sans MS Negrito", Font.BOLD, 20));
+        gl.glPolygonMode(GL2.GL_FRONT_AND_BACK, GL2.GL_FILL);
+        textRenderer.beginRendering(Renderer.screenWidth, Renderer.screenHeight);
+        textRenderer.setColor(Color.WHITE);
+        textRenderer.draw(texto,posX ,posY);
+        textRenderer.endRendering();
     }
     public float[] getPontos(){
         float vet[] = new float[4];
