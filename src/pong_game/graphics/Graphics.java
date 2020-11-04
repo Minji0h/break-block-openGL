@@ -42,13 +42,27 @@ public class Graphics {
         gl.glTranslatef(-x, -y, 0);
     }
 
+    public static void createBall(float x, float y) {
+        GL2 gl = EventListener.gl;
+
+        double limit = 2 * Math.PI;
+        double i, rX = 15f, rY = 15f;
+        gl.glColor4f(red, green, blue, alpha);
+        gl.glBegin(GL2.GL_POLYGON);
+        for (i = 0; i < limit; i += 0.01) {
+            gl.glVertex2d(x + rX * Math.cos(i), y + rY * Math.sin(i));
+        }
+        gl.glEnd();
+        gl.glFlush();
+    }
+
     public static void createPaddle(float x, float y, float width, float height) {
         GL2 gl = EventListener.gl;
 
         gl.glTranslatef(x, y, 0);
         gl.glRotatef(-rotation, 0, 0, 1);
+        gl.glColor4f(red, green, blue, alpha);
 
-        gl.glColor4d(0.196078f, 0.8f, 0.6f, 1);
         gl.glBegin(GL2.GL_QUADS);
         gl.glVertex2f(-width / 2, -height / 2);
         gl.glVertex2f(width / 2, -height / 2);
@@ -60,7 +74,6 @@ public class Graphics {
 
         gl.glRotatef(rotation, 0, 0, 1);
         gl.glTranslatef(-x, -y, 0);
-
     }
 
     public static void drawImage(ImageResource image, float x, float y, float width, float height) {

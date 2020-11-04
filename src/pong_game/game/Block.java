@@ -1,6 +1,9 @@
 package pong_game.game;
 
 import com.jogamp.opengl.GL2;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.graphics.Animation;
 import static pong_game.graphics.EventListener.gl;
 import pong_game.graphics.Graphics;
@@ -50,6 +53,11 @@ public class Block extends GameObject {
         gl.glVertex2f(posX2, posY2);
         gl.glVertex2f(posX2, posY);
         gl.glEnd();
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }

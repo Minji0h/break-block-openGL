@@ -19,12 +19,18 @@ public class KeyInput implements KeyListener {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
                     xpos = (float) EventListener.paddle.getXPos();
-                    EventListener.paddle.update((float) xpos - 0.1f);
+                    EventListener.paddle.update((float) xpos - (0.1f * 100));
                     break;
                 case KeyEvent.VK_RIGHT:
                     xpos = (float) EventListener.paddle.getXPos();
-                    EventListener.paddle.setXPos((float) xpos + 0.1f);
+                    EventListener.paddle.update((float) xpos + (0.1f * 100));
                     break;
+                case KeyEvent.VK_SPACE:
+                    if (!EventListener.ball.checkMoving()) {
+                        EventListener.ball.changeMoveStatus();
+                        System.out.println(EventListener.ball.toString());
+                        break;
+                    }
             }
         }
 

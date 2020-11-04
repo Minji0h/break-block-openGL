@@ -1,4 +1,8 @@
 package pong_game.game;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import pong_game.graphics.*;
 
 /**
@@ -30,5 +34,10 @@ public class GameObject {
             Graphics.drawImage(animations[currentAnimation].getImage(), x, y, width, height);
         }
         Graphics.setRotation(0);
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

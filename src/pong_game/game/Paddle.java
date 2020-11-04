@@ -5,8 +5,11 @@
  */
 package pong_game.game;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import pong_game.Input.MouseInput;
 import pong_game.graphics.Graphics;
+import pong_game.graphics.Renderer;
 
 /**
  *
@@ -20,15 +23,15 @@ public class Paddle {
     private float width;
 
     public Paddle() {
-        this.xPos = 0;
-        this.yPos = -2.5f;
-        this.height = 0.3f;
-        this.width = 2f;
+        this.xPos = 0 * 100;
+        this.yPos = -2.5f * 100;
+        this.height = 0.1f * 100;
+        this.width = 2f * 100;
     }
 
     public void drawPaddle() {
+        Graphics.setColor(0.196078f, 0.8f, 0.6f, 1);
         Graphics.createPaddle(this.xPos, this.yPos, this.width, this.height);
-
     }
 
     public float getXPos() {
@@ -52,6 +55,16 @@ public class Paddle {
     }
 
     public void update(float x) {
+        if (x > 390) {
+            return;
+        } else if (x < -(390)) {
+            return;
+        }
         this.xPos = x;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

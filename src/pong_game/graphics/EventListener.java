@@ -9,7 +9,9 @@ import com.jogamp.opengl.util.gl2.GLUT;
 import pong_game.Menu.Botao;
 import pong_game.Menu.Menu;
 import pong_game.game.Player;
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import pong_game.game.*;
 import pong_game.resource.ImageResource;
 
 /**
@@ -24,6 +26,7 @@ public class EventListener implements GLEventListener {
     Player player = new Player();
 
     public static Paddle paddle = new Paddle();
+    public static Ball ball = new Ball();
 
     public Botao Iniciar;
     public Botao Continuar;
@@ -79,7 +82,6 @@ public class EventListener implements GLEventListener {
                 System.out.println("CARALHO");
                 break;
         }
-
     }
 
     public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {
@@ -93,4 +95,12 @@ public class EventListener implements GLEventListener {
         gl.glMatrixMode(GL2.GL_MODELVIEW);
 
     }
+
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
+
 }
