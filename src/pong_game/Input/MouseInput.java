@@ -74,16 +74,11 @@ public class MouseInput implements MouseListener {
             System.out.println(IniciarPos[2]);
 
             if (tx >= IniciarPos[0] && tx <= IniciarPos[1] && ty <= IniciarPos[2] && ty >= IniciarPos[3]) {
-                gl.glTranslatef(-Renderer.cameraX, -Renderer.cameraY, 0);
-                World.render();
-                gl.glTranslatef(Renderer.cameraX, Renderer.cameraY, 0);
-                //player.drawLifePoints();
-                paddle.drawPaddle();
-                //ball.drawBall();
+                EventListener.op = 1;
             } else if (tx >= ContinuarPos[0] && tx <= ContinuarPos[1] && ty <= ContinuarPos[2] && ty >= ContinuarPos[3]) {
-                System.out.println("Botão 2");
+                EventListener.op = 2;
             } else if (tx >= RegrasPos[0] && ty <= RegrasPos[1] && ty <= RegrasPos[2] && ty >= RegrasPos[3]) {
-                System.out.println("Botão 3");
+                EventListener.op = 3;
             } else if (tx >= SairPos[0] && tx <= SairPos[1] && ty <= SairPos[2] && ty >= SairPos[3]) {
                 System.exit(0);
             }
