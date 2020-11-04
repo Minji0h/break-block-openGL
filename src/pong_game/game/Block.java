@@ -34,27 +34,6 @@ public class Block extends GameObject {
         float b = (float) (Math.random() * ((1 - 0) + 1)) + 0;
     }
 
-    public int getHits() {
-        return hits;
-    }
-
-    public static float getPosX() {
-        return posX;
-    }
-
-    public static float getPosX2() {
-        return posX2;
-    }
-
-    public static float getPosY() {
-        return posY;
-    }
-
-    public static float getPosY2() {
-        return posY2;
-    }
-
-
     public static void constructor(Block Bloquinho) {
         gl.glColor3f(1, 0, 1);
         //gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
@@ -89,6 +68,9 @@ public class Block extends GameObject {
         vet[2] = posY;
         vet[3] = posY2;
         return vet;
+    }
+    public void DropaBloquinho(Block Bloquinho){
+        Blocos.remove(Bloquinho);
     }
 
 }
